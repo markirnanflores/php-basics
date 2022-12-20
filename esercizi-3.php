@@ -21,12 +21,26 @@ $array = [
   [6, 9, 11, 16, 17, 28, 29, 31, 32, 43, 45, 49, 50, 52, 59, 61, 67, 71, 72, 73, 75, 76, 77, 82, 83, 84, 91, 96, 97, 98]
 ];
 
-echo 'Il numero più grande è ' . $numeroGrande . PHP_EOL;
+for ($i=0; $i<count($array); $i++){
+    array_push($numeriGrandi, max($array[$i]));
+}
 
-echo 'Il numero più grande è ripetuto n. ' . $contatore  . ' volte' . PHP_EOL;
-echo 'Il numero più grande è nelle seguenti posizioni ' . PHP_EOL;
-print_r($posizioni);
+$numeroGrande = max($numeriGrandi);
 
+for ($i=0; $i<count($array); $i++){
+    for($id=0; $id<count($array[$i]); $id++){
+        if($array[$i][$id]== $numeroGrande){
+            $contatore = $contatore +1; 
+            $posizioni["$i"]= "$id";
+        }
+    }
+}
+  
+echo  "<br>". 'Il numero più grande è ' . $numeroGrande . PHP_EOL . "<br>";
+echo "<br>".'Il numero più grande è ripetuto n. ' . $contatore  . ' volte' . PHP_EOL . "<br>";
+echo "<br>".'Il numero più grande è nelle seguenti posizioni ' . PHP_EOL . "<br>";
+
+print_r($posizioni) . "<br>";
 
 
 
